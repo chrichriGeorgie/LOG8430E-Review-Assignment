@@ -1,9 +1,9 @@
-# Inspired by https://blog.devgenius.io/how-to-deploy-a-mongodb-replicaset-using-docker-compose-a538100db471
 #!/bin/bash
+# Inspired by https://blog.devgenius.io/how-to-deploy-a-mongodb-replicaset-using-docker-compose-a538100db471
 
-DELAY=25
+DELAY=60
 
-mongo <<EOF
+mongosh <<EOF
 var config = {
     "_id": "dbrs",
     "version": 1,
@@ -32,4 +32,4 @@ echo "****** Waiting for ${DELAY} seconds for replicaset configuration to be app
 
 sleep $DELAY
 
-mongo < /scripts/init.js
+mongosh < /scripts/init.js
