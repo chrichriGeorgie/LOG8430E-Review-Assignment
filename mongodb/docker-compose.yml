@@ -6,8 +6,7 @@ services:
     container_name: mongo1
     image: mongo:6.0.3
     volumes:
-      - ./scripts/rs-init.sh:/scripts/rs-init.sh
-      - ./scripts/init.js:/scripts/init.js
+      - ./scripts:/scripts
     networks:
       - mongodb-network
     ports:
