@@ -17,7 +17,7 @@ cd ../../ycsb-0.17.0
 it=3
 for workload in ${workloads[@]}; do
     for ((i=0; i<$it; i++)); do
-        ./bin/ycsb.sh load redis -P workloads/${workload} > ../redisload_${workload}_${i}.txt
-        ./bin/ycsb.sh run redis -P workloads/${workload} > ../redisrun_${workload}_${i}.txt
+        ./bin/ycsb.sh load redis -s -P workloads/${workload} -p redis.host=127.0.0.1 -p redis.port=6379 -p redis.cluster=true > ../redisload_${workload}_${i}.txt
+        ./bin/ycsb.sh run redis -s -P workloads/${workload} -p redis.host=127.0.0.1 -p redis.port=6379 -p redis.cluster=true > ../redisrun_${workload}_${i}.txt
     done
 done
