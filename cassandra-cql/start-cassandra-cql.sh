@@ -23,8 +23,8 @@ cd ../../ycsb-0.17.0
 it=3
 for workload in ${workloads[@]}; do
     for ((i=0; i<it; i++)); do
-        ./bin/ycsb.sh load cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip" > load${workload}${i}.txt
-        ./bin/ycsb.sh run cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip" > run${workload}${i}.txt
+        ./bin/ycsb.sh load cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip" > ../cassandraload${workload}${i}.txt
+        ./bin/ycsb.sh run cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip" > ../cassandrarun${workload}${i}.txt
     done
 done
 
