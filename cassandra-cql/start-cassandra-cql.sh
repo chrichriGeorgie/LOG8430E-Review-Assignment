@@ -18,12 +18,13 @@ sleep 120s
 sudo docker exec -it cassandra-main cqlsh -e "create keyspace ycsb WITH REPLICATION = {'class' : 'SimpleStrategy', 'replication_factor': 3};USE ycsb;create table usertable (y_id varchar primary key,field0 varchar,field1 varchar,field2 varchar,field3 varchar,field4 varchar,field5 varchar,field6 varchar,field7 varchar,field8 varchar,field9 varchar);"
 
 workloads=( "workloada" "workloadb" "workloadc" "workloadd" "workloade" "workloadf" )
-it=3
 
+cd ../../ycsb-0.17.0
+it=3
 for workload in ${workloads[@]}; do
     for ((i=0; i<it; i++)); do
-        ../bin/ycsb.sh load cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip" > load${workload}${i}.txt
-        ../bin/ycsb.sh run cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip" > run${workload}${i}.txt
+        ./bin/ycsb.sh load cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip" > load${workload}${i}.txt
+        ./bin/ycsb.sh run cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip" > run${workload}${i}.txt
     done
 done
 
