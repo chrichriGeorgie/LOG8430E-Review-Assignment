@@ -20,8 +20,8 @@ cd ../../ycsb-0.17.0
 it=3
 for workload in ${workloads[@]}; do
     for ((i=0; i<$it; i++)); do
-        ./bin/ycsb load mongodb -P workloads/${workload} > ../mongoload_${workload}_${i}.txt
-        ./bin/ycsb run mongodb -P workloads/${workload} > ../mongorun_${workload}_${i}.txt
+        ./bin/ycsb.sh load mongodb -P workloads/${workload} > ../mongoload_${workload}_${i}.txt
+        ./bin/ycsb.sh run mongodb -P workloads/${workload} > ../mongorun_${workload}_${i}.txt
         docker exec mongo1 /scripts/clear-ycsb.sh
     done
 done
