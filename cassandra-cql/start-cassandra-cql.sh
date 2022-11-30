@@ -8,6 +8,7 @@ sudo docker run --name cassandra-n4 -d --link cassandra-main:cassandra cassandra
 sudo docker run --name cassandra-n5 -d --link cassandra-main:cassandra cassandra:latest
 sudo docker run --name cassandra-n6 -d --link cassandra-main:cassandra cassandra:latest
 sleep 130s
+sudo docker start cassandra-main
 sudo docker start cassandra-n2 cassandra-n3 cassandra-n4 cassandra-n5 cassandra-n6
 
 cass_main_ip=$(sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cassandra-main)
