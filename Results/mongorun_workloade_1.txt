@@ -1,0 +1,33 @@
+/usr/bin/java  -classpath /home/ubuntu/ycsb-0.17.0/conf:/home/ubuntu/ycsb-0.17.0/lib/HdrHistogram-2.1.4.jar:/home/ubuntu/ycsb-0.17.0/lib/core-0.17.0.jar:/home/ubuntu/ycsb-0.17.0/lib/htrace-core4-4.1.0-incubating.jar:/home/ubuntu/ycsb-0.17.0/lib/jackson-core-asl-1.9.4.jar:/home/ubuntu/ycsb-0.17.0/lib/jackson-mapper-asl-1.9.4.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/logback-classic-1.1.2.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/logback-core-1.1.2.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/mongo-java-driver-3.8.0.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/mongodb-async-driver-2.0.1.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/mongodb-binding-0.17.0.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/slf4j-api-1.7.25.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/snappy-java-1.1.7.1.jar site.ycsb.Client -t -db site.ycsb.db.MongoDbClient -P workloads/workloade
+mongo client connection created with mongodb://localhost:27017/ycsb?w=1
+[OVERALL], RunTime(ms), 2709
+[OVERALL], Throughput(ops/sec), 369.139904023625
+[TOTAL_GCS_G1_Young_Generation], Count, 6
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 61
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 2.2517534145441123
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 6
+[TOTAL_GC_TIME], Time(ms), 61
+[TOTAL_GC_TIME_%], Time(%), 2.2517534145441123
+[CLEANUP], Operations, 1
+[CLEANUP], AverageLatency(us), 2705.0
+[CLEANUP], MinLatency(us), 2704
+[CLEANUP], MaxLatency(us), 2705
+[CLEANUP], 95thPercentileLatency(us), 2705
+[CLEANUP], 99thPercentileLatency(us), 2705
+[INSERT], Operations, 51
+[INSERT], AverageLatency(us), 5245.64705882353
+[INSERT], MinLatency(us), 742
+[INSERT], MaxLatency(us), 18671
+[INSERT], 95thPercentileLatency(us), 10271
+[INSERT], 99thPercentileLatency(us), 12191
+[INSERT], Return=OK, 51
+[SCAN], Operations, 949
+[SCAN], AverageLatency(us), 1836.7513171759747
+[SCAN], MinLatency(us), 543
+[SCAN], MaxLatency(us), 115263
+[SCAN], 95thPercentileLatency(us), 4759
+[SCAN], 99thPercentileLatency(us), 9287
+[SCAN], Return=OK, 949

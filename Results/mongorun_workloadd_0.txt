@@ -1,0 +1,33 @@
+/usr/bin/java  -classpath /home/ubuntu/ycsb-0.17.0/conf:/home/ubuntu/ycsb-0.17.0/lib/HdrHistogram-2.1.4.jar:/home/ubuntu/ycsb-0.17.0/lib/core-0.17.0.jar:/home/ubuntu/ycsb-0.17.0/lib/htrace-core4-4.1.0-incubating.jar:/home/ubuntu/ycsb-0.17.0/lib/jackson-core-asl-1.9.4.jar:/home/ubuntu/ycsb-0.17.0/lib/jackson-mapper-asl-1.9.4.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/logback-classic-1.1.2.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/logback-core-1.1.2.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/mongo-java-driver-3.8.0.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/mongodb-async-driver-2.0.1.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/mongodb-binding-0.17.0.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/slf4j-api-1.7.25.jar:/home/ubuntu/ycsb-0.17.0/mongodb-binding/lib/snappy-java-1.1.7.1.jar site.ycsb.Client -t -db site.ycsb.db.MongoDbClient -P workloads/workloadd
+mongo client connection created with mongodb://localhost:27017/ycsb?w=1
+[OVERALL], RunTime(ms), 2096
+[OVERALL], Throughput(ops/sec), 477.09923664122135
+[TOTAL_GCS_G1_Young_Generation], Count, 1
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 8
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.38167938931297707
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 1
+[TOTAL_GC_TIME], Time(ms), 8
+[TOTAL_GC_TIME_%], Time(%), 0.38167938931297707
+[READ], Operations, 960
+[READ], AverageLatency(us), 1215.2645833333333
+[READ], MinLatency(us), 607
+[READ], MaxLatency(us), 123135
+[READ], 95thPercentileLatency(us), 2631
+[READ], 99thPercentileLatency(us), 5835
+[READ], Return=OK, 960
+[CLEANUP], Operations, 1
+[CLEANUP], AverageLatency(us), 3697.0
+[CLEANUP], MinLatency(us), 3696
+[CLEANUP], MaxLatency(us), 3697
+[CLEANUP], 95thPercentileLatency(us), 3697
+[CLEANUP], 99thPercentileLatency(us), 3697
+[INSERT], Operations, 40
+[INSERT], AverageLatency(us), 6626.675
+[INSERT], MinLatency(us), 853
+[INSERT], MaxLatency(us), 19551
+[INSERT], 95thPercentileLatency(us), 11599
+[INSERT], 99thPercentileLatency(us), 19551
+[INSERT], Return=OK, 40
