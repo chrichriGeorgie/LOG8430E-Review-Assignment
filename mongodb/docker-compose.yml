@@ -14,9 +14,15 @@ services:
     depends_on:
       - mongo2
       - mongo3
+      - mongo4
+      - mongo5
+      - mongo6
     links:
       - mongo2
       - mongo3
+      - mongo4
+      - mongo5
+      - mongo6
     restart: always
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
 
@@ -37,6 +43,36 @@ services:
       - mongodb-network
     ports:
       - 27019:27017
+    restart: always
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+
+  mongo4:
+    container_name: mongo4
+    image: mongo:6.0.3
+    networks:
+      - mongodb-network
+    ports:
+      - 27020:27017
+    restart: always
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+
+  mongo5:
+    container_name: mongo5
+    image: mongo:6.0.3
+    networks:
+      - mongodb-network
+    ports:
+      - 27021:27017
+    restart: always
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
+
+  mongo6:
+    container_name: mongo6
+    image: mongo:6.0.3
+    networks:
+      - mongodb-network
+    ports:
+      - 27022:27017
     restart: always
     entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "dbrs" ]
 

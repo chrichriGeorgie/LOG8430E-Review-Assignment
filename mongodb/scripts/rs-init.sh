@@ -22,6 +22,21 @@ var config = {
             "_id": 3,
             "host": "mongo3:27017",
             "priority": 1
+        },
+         {
+            "_id": 4,
+            "host": "mongo4:27017",
+            "priority": 1
+        },
+        {
+            "_id": 5,
+            "host": "mongo5:27017",
+            "priority": 1
+        },
+         {
+            "_id": 6,
+            "host": "mongo6:27017",
+            "priority": 1
         }
     ]
 };
