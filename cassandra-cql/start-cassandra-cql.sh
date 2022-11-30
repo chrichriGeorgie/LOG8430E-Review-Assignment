@@ -4,12 +4,18 @@ sudo docker run --name cassandra-main -d cassandra:latest
 sleep 40s
 sudo docker run --name cassandra-n2 -d --link cassandra-main:cassandra cassandra:latest
 sudo docker run --name cassandra-n3 -d --link cassandra-main:cassandra cassandra:latest
+sudo docker run --name cassandra-n4 -d --link cassandra-main:cassandra cassandra:latest
+sudo docker run --name cassandra-n5 -d --link cassandra-main:cassandra cassandra:latest
+sudo docker run --name cassandra-n6 -d --link cassandra-main:cassandra cassandra:latest
 sleep 130s
-sudo docker start cassandra-n2 cassandra-n3
+sudo docker start cassandra-n2 cassandra-n3 cassandra-n4 cassandra-n5 cassandra-n6
 
 cass_main_ip=$(sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cassandra-main)
 cass_n2_ip=$(sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cassandra-n2)
 cass_n3_ip=$(sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cassandra-n3)
+cass_n4_ip=$(sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cassandra-n4)
+cass_n5_ip=$(sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cassandra-n5)
+cass_n6_ip=$(sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cassandra-n6)
 
 echo 'Waiting for cluster to stabilize'
 sleep 120s
@@ -23,8 +29,8 @@ cd ../../ycsb-0.17.0
 it=3
 for workload in ${workloads[@]}; do
     for ((i=0; i<it; i++)); do
-        ./bin/ycsb.sh load cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip" > ../cassandraload${workload}${i}.txt
-        ./bin/ycsb.sh run cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip" > ../cassandrarun${workload}${i}.txt
+        ./bin/ycsb.sh load cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip,$cass_n4_ip,$cass_n5_ip,$cass_n6_ip" > ../cassandraload${workload}${i}.txt
+        ./bin/ycsb.sh run cassandra-cql -P workloads/${workload} -p "hosts=$cass_main_ip,$cass_n2_ip,$cass_n3_ip,$cass_n4_ip,$cass_n5_ip,$cass_n6_ip" > ../cassandrarun${workload}${i}.txt
     done
 done
 
