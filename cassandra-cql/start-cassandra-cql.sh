@@ -1,17 +1,17 @@
 #!/bin/bash
 
-sudo docker run --name cassandra-main -d -e MAX_HEAP_SIZE="1G" -e HEAP_NEWSIZE="1G" --restart always cassandra:latest
+sudo docker run --name cassandra-main -d -e MAX_HEAP_SIZE="950M" -e HEAP_NEWSIZE="950M" --restart always cassandra:latest
 sleep 60s
 cass_main_ip=$(sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' cassandra-main)
-sudo docker run --name cassandra-n2 -d -e CASSANDRA_SEEDS="$cass_main_ip" -e MAX_HEAP_SIZE="1G" -e HEAP_NEWSIZE="1G" --restart always cassandra:latest
+sudo docker run --name cassandra-n2 -d -e CASSANDRA_SEEDS="$cass_main_ip" -e MAX_HEAP_SIZE="800M" -e HEAP_NEWSIZE="800M" --restart always cassandra:latest
 sleep 60s
-sudo docker run --name cassandra-n3 -d -e CASSANDRA_SEEDS="$cass_main_ip" -e MAX_HEAP_SIZE="1G" -e HEAP_NEWSIZE="1G" --restart always cassandra:latest
+sudo docker run --name cassandra-n3 -d -e CASSANDRA_SEEDS="$cass_main_ip" -e MAX_HEAP_SIZE="800M" -e HEAP_NEWSIZE="800M" --restart always cassandra:latest
 sleep 60s
-sudo docker run --name cassandra-n4 -d -e CASSANDRA_SEEDS="$cass_main_ip" -e MAX_HEAP_SIZE="1G" -e HEAP_NEWSIZE="1G" --restart always cassandra:latest
+sudo docker run --name cassandra-n4 -d -e CASSANDRA_SEEDS="$cass_main_ip" -e MAX_HEAP_SIZE="800M" -e HEAP_NEWSIZE="800M" --restart always cassandra:latest
 sleep 60s
-sudo docker run --name cassandra-n5 -d -e CASSANDRA_SEEDS="$cass_main_ip" -e MAX_HEAP_SIZE="1G" -e HEAP_NEWSIZE="1G" --restart always cassandra:latest
+sudo docker run --name cassandra-n5 -d -e CASSANDRA_SEEDS="$cass_main_ip" -e MAX_HEAP_SIZE="800M" -e HEAP_NEWSIZE="800M" --restart always cassandra:latest
 sleep 60s
-sudo docker run --name cassandra-n6 -d -e CASSANDRA_SEEDS="$cass_main_ip" -e MAX_HEAP_SIZE="1G" -e HEAP_NEWSIZE="1G" --restart always cassandra:latest
+sudo docker run --name cassandra-n6 -d -e CASSANDRA_SEEDS="$cass_main_ip" -e MAX_HEAP_SIZE="800M" -e HEAP_NEWSIZE="800M" --restart always cassandra:latest
 
 echo 'Waiting for cluster to stabilize'
 sleep 120s
@@ -28,7 +28,7 @@ sudo docker exec -it cassandra-main cqlsh -e "create keyspace ycsb WITH REPLICAT
 
 workloads=( "workloada" "workloadb" "workloadc" "workloadd" "workloade" "workloadf" )
 
-cd ../../ycsb-0.17.0
+cd ../../YCSB
 it=3
 for workload in ${workloads[@]}; do
     for ((i=0; i<it; i++)); do
