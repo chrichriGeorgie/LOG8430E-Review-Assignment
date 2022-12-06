@@ -28,7 +28,7 @@ sudo docker exec -it cassandra-main cqlsh -e "create keyspace ycsb WITH REPLICAT
 
 workloads=( "workloada" "workloadb" "workloadc" "workloadd" "workloade" "workloadf" )
 
-cd ../../YCSB
+cd ../../ycsb-0.17.0
 it=3
 for workload in ${workloads[@]}; do
     for ((i=0; i<it; i++)); do
